@@ -31,9 +31,19 @@ For example, sorting an array (e.g., using mergesort or quicksort) is solved by 
 
 3. **Randomization**
 
-- 3a. 
 
-- 3b.
+We consider the random variable X denoting the number of comparisons performed by randomized Quicksort on an input of size n. It is known that the expected work satisfies $E[X] = O(n \log n)$. For convenience we use the bound $E[X] \le C n \log n$ for some constant $C > 0$. By Markov's inequality,
+$$P[X \ge a] \le \frac{E[X]}{a}.$$
+
+To study the likelihood of quadratic behavior, we set $a = k n^{2}$ for any constant $k > 0$. Then
+$$P[X \ge k n^{2}] \le \frac{C n \log n}{k n^{2}} = \frac{C}{k} \cdot \frac{\log n}{n}.$$
+This goes to zero as $n$ grows. Therefore the probability that Quicksort performs quadratic work vanishes, and large deviations of this type become increasingly unlikely.
+
+We next examine the probability that Quicksort exceeds its expected running time by a factor of $10^{c}$ where $c > 0$. Setting $a = 10^{c} n \log n$ in Markov's inequality gives
+$$P[X \ge 10^{c} n \log n] \le \frac{C n \log n}{10^{c} n \log n} = \frac{C}{10^{c}}.$$
+Thus the probability of exceeding the expected value by a multiplicative factor of $10^{c}$ decreases exponentially in $c$.
+
+These two bounds together imply that the work of Quicksort is concentrated near its expectation. Catastrophically large running times occur with vanishing probability, and extremely large constant-factor deviations from the mean have exponentially small probability.
 
 4. **Greedy Algorithms**
 

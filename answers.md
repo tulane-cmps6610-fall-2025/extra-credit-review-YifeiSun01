@@ -24,6 +24,10 @@ Even so, I appreciate DP for its generality, clarity, and the deep idea behind i
 
 2. **Divide and Conquer**
 
+No.
+Problems that can be solved by divide and conquer do not necessarily satisfy the optimal substructure property.
+Optimal substructure is a property of optimization problems: an optimal solution can be constructed from optimal solutions to subproblems. However, many classic divide-and-conquer problems are not optimization problems at all, so optimal substructure does not even apply.
+For example, sorting an array (e.g., using mergesort or quicksort) is solved by divide and conquer: we split the array into subarrays, recursively sort each subarray, and then combine the results. But sorting is not an optimization problem — there is no notion of a “more optimal” sorted array, only correct vs incorrect. Thus sorting is a divide-and-conquer problem without an optimal substructure property.
 
 3. **Randomization**
 

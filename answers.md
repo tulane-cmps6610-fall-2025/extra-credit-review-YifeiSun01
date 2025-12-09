@@ -47,6 +47,22 @@ These two bounds together imply that the work of Quicksort is concentrated near 
 
 4. **Greedy Algorithms**
 
+To minimize the average waiting time, it is enough to minimize the total waiting time. Suppose a schedule is not ordered by nondecreasing processing times. Then there exists an adjacent pair of jobs $i$ and $j$ such that $p_i > p_j$ and the schedule places them in the order $(i,j)$. Let $W$ be the sum of processing times of all jobs before this pair. In this order, the waiting times of the two jobs are
+
+$$wait(i) = W$$
+$$wait(j) = W + p_i$$
+
+and their total contribution is $$2W + p_i$$. After swapping the pair so that the order becomes $(j,i)$, the waiting times become
+
+$$wait(j) = W$$
+$$wait(i) = W + p_j$$
+
+and their contribution becomes $$2W + p_j$$. Since $p_j < p_i$, the inequality $$2W + p_j < 2W + p_i$$ holds, so the swap strictly decreases the total waiting time. All other jobs keep the same waiting time, because only this adjacent pair changes order.
+
+Therefore any schedule containing such an inversion cannot be optimal, since swapping the inverted pair always reduces the total waiting time. Repeating this process removes all inversions and produces exactly the schedule in which jobs appear in nondecreasing order of processing time. This schedule is the unique schedule that admits no improving swap, so it minimizes the total and therefore the average waiting time.```
+
+
+
 5. **Dynamic Programming**
 
 6. **Graphs**

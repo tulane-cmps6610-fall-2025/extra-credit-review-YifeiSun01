@@ -65,4 +65,9 @@ Therefore any schedule containing such an inversion cannot be optimal, since swa
 
 5. **Dynamic Programming**
 
+Consider first a recurrence with maximum span. The recurrence $$dp[n]=dp[n-1]+1$$ has optimal substructure, but every value depends on the previous one. The induced DAG is a single chain of length $$n$$ because each $$dp[k]$$ requires $$dp[k-1]$$ before it can be computed. Thus the longest path is $$n$$ and the span is $$Theta(n)$$, so no parallelism is possible.
+
+Consider now a recurrence with polylogarithmic span. The recurrence $$T(n)=T(n/2)+T(n/2)+1$$ also has optimal substructure, but each subproblem $$T(n/2)$$ is independent of the other. The induced DAG is a balanced binary tree of height $$log n$$, so the longest path has length $$Theta(log n)$$. Therefore the span is polylogarithmic and the recurrence admits ideal parallelism.
+
+
 6. **Graphs**

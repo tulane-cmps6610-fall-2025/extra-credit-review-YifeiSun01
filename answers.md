@@ -71,3 +71,8 @@ Consider now a recurrence with polylogarithmic span. The recurrence $$T(n)=T(n/2
 
 
 6. **Graphs**
+
+Consider a graph $G$ that contains a cycle $C$. Let $e$ be the edge in $C$ with the largest weight. Suppose for contradiction that some minimum spanning tree $T$ contains $e$. Removing $e$ from $T$ disconnects $T$ into two components. Because $e$ lies on the cycle $C$, the cycle must contain another edge $f$ that also connects these two components. Since $e$ has the largest weight in the cycle, the weight of $f$ is strictly smaller than the weight of $e$. Adding $f$ to $T$ after removing $e$ produces another spanning tree whose total weight is smaller than the weight of $T$. This contradicts the assumption that $T$ is a minimum spanning tree. Therefore $e$ cannot be contained in any minimum spanning tree.
+
+
+
